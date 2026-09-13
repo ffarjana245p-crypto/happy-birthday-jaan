@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Sinthia 🎂</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3, #8e2de2);
+      color: white;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 600px;
+      padding: 45px 25px;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      animation: pop 1s ease;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+      animation: glow 2s infinite alternate;
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 19px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .cake {
+      font-size: 80px;
+      animation: bounce 1.5s infinite;
+      margin-bottom: 15px;
+    }
+
+    button {
+      border: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      background: white;
+      color: #e91e63;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #ffe4ef;
+    }
+
+    #message {
+      display: none;
+      margin-top: 25px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 25px;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px white;
+      }
+      to {
+        text-shadow: 0 0 25px white, 0 0 40px #ffeb3b;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    @keyframes fall {
+      0% {
+        top: -50px;
+        opacity: 1;
+      }
+      100% {
+        top: 110vh;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="cake">🎂</div>
+
+    <h1>Happy Birthday! 🎉</h1>
+
+    <h2>Dear Sinthia ❤️</h2>
+
+    <p>
+      Wishing you a very Happy Birthday! 🥳<br>
+      May your life be filled with happiness, love,
+      success and beautiful memories. ✨
+    </p>
+
+    <button onclick="showMessage()">
+      Click for a Surprise 💝
+    </button>
+
+    <div id="message">
+      🎁 Sinthia, you are a very special person! 💖<br>
+      Stay happy and keep smiling always! 😊<br><br>
+      Lots of love ❤️
+    </div>
+
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").style.display = "block";
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration =
+        (3 + Math.random() * 3) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+</html>
